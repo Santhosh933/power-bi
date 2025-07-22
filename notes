@@ -1,0 +1,5 @@
+a="santhosh"
+b=10
+c="reddy"
+print(f"my name {a} and  age {b}")
+print(a+c)
