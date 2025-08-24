@@ -99,3 +99,7 @@ print(type(json_string))
 stu_data = json.loads(json_string)
 print(stu_data)
 print(type(stu_data))
+
+
+student_json = json.dumps(student)
+print(student_json)
