@@ -1,5 +1,7 @@
 a="santhosh"
 b=10
 c="reddy"
+d=8
 print(f"my name {a} and  age {b}")
 print(a+c)
+print(b+d)
