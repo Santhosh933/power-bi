@@ -1,0 +1,233 @@
+a=2
+b=3
+def arithmetic():
+    print(a+b)
+    print(a-b)
+    print(a*b)
+    print(a/b)   
+arithmetic()
+
+def arithmetic(a,b):
+    print(a+b)
+    print(a-b)
+    print(a*b)
+    print(a/b)   
+arithmetic(5,1)
+arithmetic(50,5)
+
+# Positional Arguments 
+def names(firstname,lastname):
+    print(f"the first name is {firstname} and the last name is {lastname}")
+names("umareddy","santhosh")
+
+def names(firstname,rollnumber):
+    if firstname == "umareddy" and rollnumber =="112":
+        print("correct order")
+    else:
+        print("invalid order")
+names("umareddy","santhosh")
+
+
+def login(username,password):
+    if username == "ravi" and password == "12345":
+        print("Login Success")
+    else:
+        print("Login Failed")
+
+login("ravi","12345") 
+login("ravi","123") 
+login("12345","ravi") 
+
+# Default Arguments 
+def emp_info(emp_name,emp_email,emp_loc):
+    print(f"Hi {emp_name} your email is {emp_email} and location is {emp_loc}")
+
+emp_info("santhosh","santhosh@gmail.com","hyd")
+
+
+def emp_info(emp_name,emp_email,emp_loc="Hyderabad"):
+    print(f"Hi {emp_name} your email is {emp_email} and location is {emp_loc}")
+
+emp_info("santhosh","santhosh@gmail.com")
+emp_info("nagi","nagi@gmail.com")
+
+
+# Keyword Arguments 
+def emp_info(emp_name,emp_email,emp_loc):
+    print(f"Hi {emp_name} your email is {emp_email} and location is {emp_loc}")
+
+emp_info(emp_name="santhu",emp_loc="Bangalore",emp_email="santhu@gmail.com")
+
+# Keyword Arguments 
+def emp_info(emp_name,emp_email,emp_loc,address="India"):
+    print(f"Hi {emp_name} your email is {emp_email} and location is {emp_loc} actually from {address}")
+
+emp_info(emp_name="nagi",emp_loc="Bangalore",emp_email="nagi@gmail.com")
+
+
+# Arbitrary Positional Arguments
+def add_all(*numbers):
+    total = 0
+    for i in numbers:
+        total = total + i
+    print(f"Total is: {total}")
+
+
+add_all(1)
+add_all(1,2)
+add_all(1,2,3,4,5,6,7,8,9)
+
+
+# Arbitrary Keyword Arguments (**kwargs)     
+def profile(**info):
+    print(info)
+
+profile()
+profile(id="101")
+profile(id="102",name="santhu")
+profile(id=102,name="santhu",rating=4.5)
+
+
+# without return keyword
+def add(a,b):
+    a+b
+print(add(4,1))
+
+
+# with return keyword
+def add(a,b):
+    return a+b
+print(add(4,1))
+
+
+
+
+def math(a,b):
+    return a+b
+    return a-b
+    return a*b
+
+print(math(10,20))
+
+def math(a,b,oper):
+    if oper == "+":
+        return a+b
+    elif oper == "-":
+        return a-b
+    elif oper == "*":
+        return a*b
+    else:
+        return "invalid"
+    
+print(math(10,20,"+"))
+print(math(10,20,"-"))
+print(math(10,20,"/"))
+
+def add():
+    # bb and cc are local variables accessing insida a function
+    bb=4
+    cc=5
+    print(bb)
+    print(cc)
+add()
+
+def add(bb,cc):
+    # parameters bb and cc are local variables
+    print(bb)
+    print(cc)
+add(20,50)
+
+aa=35 #global variable
+def add(bb,cc):
+    # parameters bb and cc are local variables
+    print(bb)
+    print(cc)
+    print(aa)  #global variable inside function
+add(20,50)
+print(aa)  #global variable outside function
+
+aa=35 #global variable
+def add(bb,cc,aa):
+   
+    print(bb)
+    print(cc)
+    print(aa)  
+add(20,50,7)
+print(aa)  #global variable outside function
+
+aa=35 #global variable
+def add(bb,cc,aa):
+   
+    print(bb)
+    print(cc)
+    print(aa) 
+    print(globals()['aa']) 
+add(20,50,7)
+print(aa)
+
+
+count = 0
+def increment():
+    global count
+    count += 1 
+increment()    
+print("Count: ",count)
+
+# function composition
+def add(a,b):
+    return a+b    
+
+def sub(c,d,e):
+    return add(c,d) - e
+
+print(sub(3,4,5))
+
+
+#without lambda
+def add(a,b):
+    return a+b;
+print(add(25,25))
+
+# with lambda
+sum=lambda a,b:a+b
+print(sum(2,2))
+
+#iile
+print((lambda a,b:a+b)(30,40))
+
+# with map 
+# input [1,2,3,4] --> output [1,4,9,16]
+print(map(lambda n: n * n, [1,2,3,4]))
+
+print(list(map(lambda n: n * n, [1,2,3,4])))
+
+# without filter
+# input [1,2,3,4,5,6,7,8,9,10] --> Output [2,4,6,8,10]
+def even_list(numbers):
+    even_nums = []
+    for n in numbers:
+        if n % 2 == 0:
+            even_nums.append(n)
+    return even_nums
+
+print(even_list([1,2,3,4,5,6,7,8,9,10]))
+
+# with filter 
+# input [1,2,3,4,5,6,7,8,9,10] --> Output [2,4,6,8,10]
+print(filter(lambda n: n % 2 == 0, [1,2,3,4,5,6,7,8,9,10]))
+print(list(filter(lambda n: n % 2 == 0, [1,2,3,4,5,6,7,8,9,10])))
+
+# without reduce
+# input [1,2,3,4] -- output (1*2*3*4 = 24)
+def multiply_list(numbers):
+    result = 1
+    for i in numbers:
+        result = result * i
+    return result
+    
+print(multiply_list([1,2,3,4]))
+
+# with reduce
+# input [1,2,3,4] -- output (1*2*3*4 = 24)
+from functools import reduce
+print(reduce(lambda x,y: x*y, [1,2,3,4]))
