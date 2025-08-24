@@ -103,3 +103,4 @@ print(type(stu_data))
 
 student_json = json.dumps(student)
 print(student_json)
+
